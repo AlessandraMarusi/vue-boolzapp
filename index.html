@@ -57,14 +57,21 @@
                             <span>Cerca o inizia una nuova chat</span>
                         </div>
                     </section>
-                    <section class="contact-list">
-                        <div class="contact">
-                            <img src="img/avatar_1.jpg" alt="avatar">
-                            <div class="contact-text">
-                                <span>Michele</span>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
+                    <section class="contact-list-container">
+                        <ul id="contact-list">
+                            <li v-for="contact in contacts" 
+                            class="contact" 
+                            :class="{'active': contact.visible}"
+                            @click="contact.visible = !contact.visible"
+                            >
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
+                                <div class="contact-text">
+                                    <span>{{contact.name}}</span>
+                                    <p>Ultimo messaggio inviato <!-- DA CAMBIARE NELL'EFFETTIVO ULTIMO MESSAGGIO INVIATO --></p>
+                                </div>
                             <span class="time">12:00</span>
+                            </li>
+                        </ul>
                     </section>
                 </div>
                 <div class="right-main">

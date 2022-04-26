@@ -129,9 +129,8 @@ main {
 /* #endregion SEARCH BAR SECTION */
 
 /* #region || CONTACT LIST ||*/
-.contact-list {
+.contact-list-container {
     background-color: white;
-    padding: 10px;
     height: calc(100% - 140px);
     overflow-y: scroll;
 }
@@ -139,6 +138,7 @@ main {
     display: flex;
     align-items: flex-start;
     gap: 15px;
+    padding: 8px 5px;
 }
 .contact img {
     margin-left: 10px;
