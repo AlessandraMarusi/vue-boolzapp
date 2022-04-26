@@ -3,3 +3,140 @@
     padding: 0;
     box-sizing: border-box;
 }
+.wrapper {
+    background-color: #D9DBD6;
+    height: 100vh;
+    width: 100%;
+}
+.green-background {
+    background-color: #009688;
+    height: 150px;
+}
+#boolzap {
+    width: 80%;
+    height: 95vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EAEAEA;
+}
+.left-header, .left-main {
+    width: 35%;
+    border-right: 1px solid #D9DBD6;
+}
+.right-header, .right-main {
+    width: 65%;
+}
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* #region || HEADER ||*/
+
+header {
+    height: 70px;
+    display: flex;
+    width: 100%;
+}
+.left-header, .right-header {
+    display: flex;
+    justify-content: space-between;
+}
+.user, .menu {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.menu{
+    gap: 20px;
+    margin-right: 25px;
+    color: #B1B1B1;
+    font-size: 1.4rem;
+}
+/* #endregion HEADER*/
+
+/* #REGION || MAIN ||*/
+main {
+
+}
+/* #region || NOTIFICHE SETTING SECTION ||*/
+.notifiche-setting {
+    height: 80px;
+    display: flex;
+    background-color: #8EDAFC;
+    padding: 10px;
+    align-items: center;
+    font-size: 1rem;
+    gap: 8px;
+}
+.notifiche-setting a {
+    color: #5e5c5c;
+}
+.notifiche-setting i {
+    background-color: white;
+    border-radius: 50%;
+    color: #8EDAFC;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+/* #endregion NOTIFICHE SETTING SECTION*/
+
+/* #region || SEARCH BAR SECTION ||*/
+.search-bar {
+    height: 60px;
+    padding: 5px;
+}
+.search-container {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: #B6B9BB;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.search-container span {
+    color: #707172;
+    margin-left: 10px;
+}
+.search-container i {
+    margin:  0 25px;
+}
+/* #endregion SEARCH BAR SECTION */
+/* #ENDREGION MAIN*/
+
+/* #region || CONTACT LIST ||*/
+.contact-list {
+    background-color: white;
+    padding: 10px;
+}
+.contact {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+.contact img {
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+}
+.contact-text {
+    flex-grow: 2;
+}
+.contact-text p {
+    color: #C0C2C2;
+}
+.time {
+    color: #C0C2C2;
+}
+/* #endregion */
+
