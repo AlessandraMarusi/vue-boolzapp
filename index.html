@@ -59,10 +59,11 @@
                     </section>
                     <section class="contact-list-container">
                         <ul id="contact-list">
-                            <li v-for="contact in contacts" 
+                            <li v-for="contact, index in contacts" 
                             class="contact" 
                             :class="{'active': contact.visible}"
-                            @click="contact.visible = !contact.visible"
+                            @click="contact.visible = !contact.visible; changeActive(index)"
+                            :data-contactid="contact.id"
                             >
                                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
                                 <div class="contact-text">
@@ -77,9 +78,11 @@
                 <div class="right-main">
                     <section class="messages">
                         <div class="message-container">
-                            <div class="message received">Hai aperto la repo?</div>
-                            <div class="message received">Ricordati di pushare</div>
-                            <div class="message sent">Tutto fatto!</div>
+                            <ul id="message-list">
+                                <li v-for="chatMessage in contacts[activeIndex].messages" class="message" :class="[chatMessage.status]">{{chatMessage.message}}
+                                    <span class="time">{{chatMessage.date}}</span>
+                                </li>
+                            </ul>
                         </div>
                     </section>
                     <div class="write-container">

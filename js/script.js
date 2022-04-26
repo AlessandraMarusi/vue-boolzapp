@@ -175,6 +175,8 @@ const boolzapp = new Vue (
             ],
             activeIndex: 0,
             contactId: 0,
+            received: "received",
+            sent: "sent",
 
         },
         methods: {
