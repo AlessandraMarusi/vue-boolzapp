@@ -190,6 +190,15 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(newMsg)
                 this.newMessage = ''
+                setTimeout(this.risposta, 1000)
+            },
+            risposta(){
+                const reply = {
+                    date: 'now',
+                    message: 'Va bene',
+                    status: 'received',
+                }
+                this.contacts[this.activeIndex].messages.push(reply)
             }
         }
     }
