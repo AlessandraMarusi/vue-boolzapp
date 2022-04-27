@@ -61,8 +61,8 @@
                         <ul id="contact-list">
                             <li v-for="contact, index in contacts" 
                             class="contact" 
-                            :class="{'active': contact.visible}"
-                            @click="contact.visible = !contact.visible; changeActive(index)"
+                            :class="{'active': index === activeIndex}"
+                            @click="changeActive(index)"
                             :data-contactid="contact.id"
                             >
                                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
@@ -87,9 +87,14 @@
                     </section>
                     <div class="write-container">
                         <i class="fa-regular fa-face-smile"></i>
-                        <div class="write-message">
-                            <span>Scrivi un messaggio</span>
-                        </div>
+                        <input
+                        type="text"
+                        class="form-control write-message"
+                        placeholder="Scrivi un messaggio"
+                        aria-label="nuovo messaggio"
+                        v-model="newMessage"
+                        @keyup.enter="send"
+                        />
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>

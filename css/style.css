@@ -187,11 +187,11 @@ main {
     padding: 15px;
     position: relative;
 }
-.received {
+.sent {
     background-color: #D5F9BA;
     align-self: flex-end;
 }
-.sent {
+.received {
     background-color: white;
 
 }
@@ -201,12 +201,13 @@ main {
 }
 .write-message {
     background-color: white;
+    border: none;
 }
 .messages .time {
     position: absolute;
     bottom: 5px;
     right: 5px;
-    font-size: 0.7rem;
+    font-size: 0.7rem\;
 }
 /* #endregion MESSAGES SECTION*/
 

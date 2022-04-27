@@ -175,15 +175,21 @@ const boolzapp = new Vue (
             ],
             activeIndex: 0,
             contactId: 0,
-            received: "received",
-            sent: "sent",
+            newMessage: '',
 
         },
         methods: {
             changeActive(index){
-                this.contacts[this.activeIndex].visible = false
                 this.activeIndex = index
-                this.contacts[this.activeIndex].visible = true
+            },
+            send(){
+                const newMsg = {
+                    date: 'now',
+                    message: this.newMessage,
+                    status: 'sent',
+                }
+                this.contacts[this.activeIndex].messages.push(newMsg)
+                this.newMessage = ''
             }
         }
     }
