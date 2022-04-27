@@ -55,23 +55,25 @@
                     <section class="search-bar">
                         <div class="search-container">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="searchInput" @keyup="filterFunction()" placeholder="Cerca o inizia una nuova chat" title="Type in a name" v-model="filterText">
+                            <input type="text" id="searchInput" placeholder="Cerca o inizia una nuova chat" title="Type in a name" v-model="filterText">
                         </div>
                     </section>
                     <section class="contact-list-container">
                         <ul id="contact-list">
-                            <li v-for="contact, index in contacts" 
-                            class="contact" 
-                            :class="{'active': index === activeIndex}"
-                            @click="changeActive(index)"
+                            <li v-for="(contact, index) in filteredContacts" 
+                            :key="contact.id"
+                            :class="{'active': contact.id === activeId}"
+                            @click="changeActive(contact.id)"
                             :data-contactid="contact.id"
                             >
-                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
-                                <div class="contact-text">
-                                    <span>{{contact.name}}</span>
-                                    <p>Ultimo messaggio inviato <!-- DA CAMBIARE NELL'EFFETTIVO ULTIMO MESSAGGIO INVIATO --></p>
-                                </div>
-                            <span class="time">12:00</span>
+                                <div class="contact">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
+                                    <div class="contact-text">
+                                        <span>{{contact.name}}</span>
+                                        <p>Ultimo messaggio inviato <!-- DA CAMBIARE NELL'EFFETTIVO ULTIMO MESSAGGIO INVIATO --></p>
+                                    </div>
+                                    <span class="time">12:00</span></div>
+                                
                             </li>
                         </ul>
                     </section>

@@ -30,7 +30,7 @@ const boolzapp = new Vue (
                     id: 2,
                     name: 'Fabio',
                     avatar: '_2',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -53,7 +53,7 @@ const boolzapp = new Vue (
                     id: 3,
                     name: 'Samuele',
                     avatar: '_3',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
@@ -76,7 +76,7 @@ const boolzapp = new Vue (
                     id: 4,
                     name: 'Alessandro B.',
                     avatar: '_4',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -94,7 +94,7 @@ const boolzapp = new Vue (
                     id: 5,
                     name: 'Alessandro L.',
                     avatar: '_5',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -112,7 +112,7 @@ const boolzapp = new Vue (
                     id: 6,
                     name: 'Claudia',
                     avatar: '_6',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -135,7 +135,7 @@ const boolzapp = new Vue (
                     id: 7,
                     name: 'Federico',
                     avatar: '_7',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -153,7 +153,7 @@ const boolzapp = new Vue (
                     id: 8,
                     name: 'Davide',
                     avatar: '_8',
-                    visible: false,
+                    visible: true,
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -174,16 +174,22 @@ const boolzapp = new Vue (
                 }
             ],
             activeIndex: 0,
-            contactId: 0,
+            activeId: 1,
             newMessage: '',
             filterText: '',
 
         },
         methods: {
-            changeActive(index){
+            changeActive(id){
+                const index = this.contacts.findIndex((contact)=>{
+                    return contact.id === id
+                })
                 this.activeIndex = index
+                this.activeId = id
+                console.log(index)
             },
             send(){
+                if(this.newMessage === '')return
                 const newMsg = {
                     date: dayjs().format('DD/MM/YYYY h:m:s'),
                     message: this.newMessage,
@@ -201,8 +207,11 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
             },
-            filterFunction(){
-
+        },
+        computed: {
+            filteredContacts(){
+                return this.contacts.filter((contact)=>contact.name.toLowerCase().includes(this.filterText.toLowerCase())
+                )
             }
         }
     }
