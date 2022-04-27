@@ -176,6 +176,7 @@ const boolzapp = new Vue (
             activeIndex: 0,
             contactId: 0,
             newMessage: '',
+            filterText: '',
 
         },
         methods: {
@@ -184,7 +185,7 @@ const boolzapp = new Vue (
             },
             send(){
                 const newMsg = {
-                    date: 'now',
+                    date: dayjs().format('DD/MM/YYYY h:m:s'),
                     message: this.newMessage,
                     status: 'sent',
                 }
@@ -194,11 +195,14 @@ const boolzapp = new Vue (
             },
             risposta(){
                 const reply = {
-                    date: 'now',
+                    date: dayjs().format('DD/MM/YYYY h:m:s'),
                     message: 'Va bene',
                     status: 'received',
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
+            },
+            filterFunction(){
+
             }
         }
     }

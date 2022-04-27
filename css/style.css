@@ -122,9 +122,14 @@ main {
     display: flex;
     align-items: center;
 }
-.search-container span {
+.search-container input {
     color: #707172;
     margin-left: 10px;
+    border: none;
+    width: 100%;
+}
+.search-container input:focus-visible {
+    outline: none;
 }
 .search-container i {
     margin:  0 25px;
@@ -228,6 +233,9 @@ main {
     display: flex;
     align-items: center;
     padding-left: 20px;
+}
+.write-message:focus-visible {
+    outline: none;
 }
 /* #endregion RIGHT MAIN*/
 

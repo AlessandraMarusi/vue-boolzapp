@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/93b7370090.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -54,7 +55,7 @@
                     <section class="search-bar">
                         <div class="search-container">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <span>Cerca o inizia una nuova chat</span>
+                            <input type="text" id="searchInput" @keyup="filterFunction()" placeholder="Cerca o inizia una nuova chat" title="Type in a name" v-model="filterText">
                         </div>
                     </section>
                     <section class="contact-list-container">
