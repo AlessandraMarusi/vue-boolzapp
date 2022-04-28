@@ -177,6 +177,7 @@ const boolzapp = new Vue (
             activeId: 1,
             newMessage: '',
             filterText: '',
+            isWriting: '',
 
         },
         methods: {
@@ -197,6 +198,7 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(newMsg)
                 this.newMessage = ''
+                this.isWriting = true
                 setTimeout(this.risposta, 1000)
             },
             risposta(){
@@ -206,6 +208,7 @@ const boolzapp = new Vue (
                     status: 'received',
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
+                this.isWriting = false
             },
             removeMsg(index){
                 this.contacts[this.activeIndex].messages.splice(index, 1);

@@ -33,7 +33,8 @@
                         <img src="img/avatar_io.jpg" alt="user avatar">
                         <div class="user-text">
                             <span>Michele</span>
-                            <p>Ultimo accesso oggi alle 12:00</p>
+                            <p v-if="isWriting == true">Sta scrivendo...</p>
+                            <p v-else>Online</p>
                         </div>
                     </div>
                     <div class="menu">
@@ -84,7 +85,7 @@
                         <div class="message-container">
                             <ul id="message-list">
                                 <li v-for="chatMessage, index in contacts[activeIndex].messages" class="message" :class="[chatMessage.status]">{{chatMessage.message}}
-                                    <span class="time">{{chatMessage.date}}</span>
+                                    <span class="time">{{chatMessage.date.slice(-8)}}</span>
                                     <!-- DA SISTEMARE il fatto che sparisca quando non si fa piu hover su message -->
                                     <div class="dropdown">
                                         <button class="btn" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -109,7 +110,14 @@
                         v-model="newMessage"
                         @keyup.enter="send"
                         />
-                        <i class="fa-solid fa-microphone"></i>
+                        <div class="write-rightIcons">
+                            <i v-if="newMessage == ''" class="fa-solid fa-microphone"></i>
+                            <div v-else class="dots" @click="send">
+                                <div class="dot-typing"></div>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </main>
