@@ -198,8 +198,10 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(newMsg)
                 this.newMessage = ''
-                this.isWriting = true
-                setTimeout(this.risposta, 1000)
+                setTimeout(() => {
+                    this.isWriting = true;
+                  }, 1000);
+                setTimeout(this.risposta, 3000)
             },
             risposta(){
                 const reply = {
