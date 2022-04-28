@@ -206,7 +206,6 @@ const boolzapp = new Vue (
                 })
                 this.activeIndex = index
                 this.activeId = id
-                console.log(index)
             },
             send(){
                 if(this.newMessage === '')return
@@ -230,9 +229,41 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
                 this.isWriting = false
+                setTimeout(() => {
+                    this.isWriting = null;
+                }, 3000);
             },
             removeMsg(index){
                 this.contacts[this.activeIndex].messages.splice(index, 1);
+            },
+            deleteMsg(){
+                this.contacts[this.activeIndex].messages=[];
+            },
+            deleteChat(){
+                /* if(this.contacts.length == 1) {
+                    const fillContact = {
+                        id:'9',
+                        name:'Aggiungi un contatto',
+                        avatar:'_0',
+                        visible: true,
+                        messages: 
+                            {
+                                date: '',
+                                message: '',
+                                status: '',
+                            }
+                    }
+                    this.contacts.push(fillContact)
+                    this.contacts.splice(0, 1);
+                    console.log(this.contacts.length)
+                    console.log(this.contacts)
+                }
+                else {
+                    this.contacts.splice(this.activeIndex, 1);
+                } */
+                console.log(this.activeIndex, this.contacts);
+                this.contacts.splice(this.activeIndex, 1);
+                
             }
         },
         computed: {

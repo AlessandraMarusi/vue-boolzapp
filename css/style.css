@@ -64,6 +64,10 @@ header {
     color: #B1B1B1;
     font-size: 1.4rem;
 }
+.menu .btn {
+    color: #B1B1B1;
+    font-size: 1.4rem;
+}
 /* #endregion HEADER*/
 
 /* #region || MAIN ||*/
@@ -193,7 +197,7 @@ main {
     padding: 15px;
     position: relative;
 }
-.dropdown {
+.message-container .dropdown {
     position: absolute;
     right: 0%;
     top: 0%;
@@ -202,9 +206,9 @@ main {
 .message:hover .dropdown {
     opacity: 1;
 }
-.btn:focus .dropdown {
+/* .btn:focus .dropdown {
     opacity: 1;
-}
+} */
 .btn:focus {
     box-shadow: none;
 }

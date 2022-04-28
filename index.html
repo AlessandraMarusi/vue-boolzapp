@@ -30,17 +30,26 @@
                 </div>
                 <div class="right-header">
                     <div class="user">
-                        <img src="img/avatar_io.jpg" alt="user avatar">
+                        <img :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'" :alt="'avatar di ' + contacts[activeIndex]">
                         <div class="user-text">
-                            <span>Michele</span>
+                            <span>{{contacts[activeIndex]?.name}}</span>
+                            <p v-if="isWriting == null">Ultimo accesso: {{contacts[activeIndex]?.messages[contacts[activeIndex]?.messages.length - 1]?.date.slice(-8)}}</p>
                             <p v-if="isWriting == true">Sta scrivendo...</p>
-                            <p v-else>Online</p>
+                            <p v-if="isWriting == false">Online</p>
                         </div>
                     </div>
                     <div class="menu">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+                              <li><a class="dropdown-item" @click="deleteMsg" href="#">Elimina messaggi</a></li>
+                              <li><a class="dropdown-item" @click="deleteChat" href="#">Elimina Chat</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -71,10 +80,10 @@
                                 <div class="contact">
                                     <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
                                     <div class="contact-text">
-                                        <span>{{contact.name}}</span>
-                                        <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                                        <span>{{contact?.name}}</span>
+                                        <p>{{contact?.messages[contact.messages.length - 1]?.message}}</p>
                                     </div>
-                                    <span class="time">{{contact.messages[contact.messages.length - 1].date.slice(-8)}}</span></div>
+                                    <span class="time">{{contact?.messages[contact.messages.length - 1]?.date.slice(-8)}}</span></div>
                                 
                             </li>
                         </ul>
@@ -84,8 +93,8 @@
                     <section class="messages">
                         <div class="message-container">
                             <ul id="message-list">
-                                <li v-for="chatMessage, index in contacts[activeIndex].messages" class="message" :class="[chatMessage.status]">{{chatMessage.message}}
-                                    <span class="time">{{chatMessage.date.slice(-8)}}</span>
+                                <li v-for="chatMessage, index in contacts[activeIndex].messages" class="message" :class="[chatMessage.status]">{{chatMessage?.message}}
+                                    <span class="time">{{chatMessage?.date.slice(-8)}}</span>
                                     <!-- DA SISTEMARE il fatto che sparisca quando non si fa piu hover su message -->
                                     <div class="dropdown">
                                         <button class="btn" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -95,7 +104,7 @@
                                           <li><a class="dropdown-item" href="#">Message info</a></li>
                                           <li><a class="dropdown-item" @click="removeMsg(index)" href="#">Delete message</a></li>
                                         </ul>
-                                      </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
