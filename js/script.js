@@ -207,6 +207,9 @@ const boolzapp = new Vue (
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
             },
+            removeMsg(index){
+                this.contacts[this.activeIndex].messages.splice(index, 1);
+            }
         },
         computed: {
             filteredContacts(){
