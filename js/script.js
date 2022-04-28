@@ -240,27 +240,7 @@ const boolzapp = new Vue (
                 this.contacts[this.activeIndex].messages=[];
             },
             deleteChat(){
-                /* if(this.contacts.length == 1) {
-                    const fillContact = {
-                        id:'9',
-                        name:'Aggiungi un contatto',
-                        avatar:'_0',
-                        visible: true,
-                        messages: 
-                            {
-                                date: '',
-                                message: '',
-                                status: '',
-                            }
-                    }
-                    this.contacts.push(fillContact)
-                    this.contacts.splice(0, 1);
-                    console.log(this.contacts.length)
-                    console.log(this.contacts)
-                }
-                else {
-                    this.contacts.splice(this.activeIndex, 1);
-                } */
+                /* DA SISTEMARE da problemi quando si elimina l'ultimo */
                 console.log(this.activeIndex, this.contacts);
                 this.contacts.splice(this.activeIndex, 1);
                 
