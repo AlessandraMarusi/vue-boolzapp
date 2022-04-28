@@ -2,6 +2,25 @@ const boolzapp = new Vue (
     {
         el: '#boolzap',
         data: {
+            randomMessages: [
+                {message: 'Ok!'},
+                {message: 'Perché?'},
+                {message: 'Ma anche no'},
+                {message: 'Che?'},
+                {message: 'Come?'},
+                {message: '42'},
+                {message: 'Mio cugino lo avrebbe fatto meglio'},
+                {message: 'So che non hai pushato'},
+                {message: 'Io sono tuo padre'},
+                {message: 'Lo conosci Ted?'},
+                {message: 'Hai il mio arco'},
+                {message: 'Io sono il grande Pdor, figlio di Kmer della tribù di Instar! Della terra desolata del Sknir! Uno degli ultimi sette saggi! Purvurur, Garen, Pastararin, Giugiar, Taram, Fusciusc e Tarin He!'},
+                {message: 'Io sono Daenerys Targaryen, "Nata dalla tempesta", la prima del suo nome, regina degli Andali, dei Rhoynar e dei Primi Uomini, signora dei Sette Regni, protettrice del Regno, principessa di Roccia del Drago, khaleesi del Grande Mare d Erba, "la Non-bruciata", "Madre dei Draghi", regina di Meereen, "Distruttrice di catene".'},
+                {message: 'Mi dispiace! La principessa è in un altro castello'},
+                {message: 'è pericoloso andare da soli'},
+                {message: 'Sei un ragazzo o una ragazza?'},
+                {message: 'C è un luogo e un momento per ogni cosa, ma non ora'},
+            ],
             contacts: [
                 {   
                     id: 1,
@@ -206,7 +225,7 @@ const boolzapp = new Vue (
             risposta(){
                 const reply = {
                     date: dayjs().format('DD/MM/YYYY h:m:s'),
-                    message: 'Va bene',
+                    message: this.randomMessages[Math.floor(Math.random() * this.randomMessages.length)].message,
                     status: 'received',
                 }
                 this.contacts[this.activeIndex].messages.push(reply)
