@@ -71,9 +71,9 @@
                                     <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'avatar di ' + contact.name">
                                     <div class="contact-text">
                                         <span>{{contact.name}}</span>
-                                        <p>Ultimo messaggio inviato <!-- DA CAMBIARE NELL'EFFETTIVO ULTIMO MESSAGGIO INVIATO --></p>
+                                        <p>{{contact.messages[contact.messages.length - 1].message}}</p>
                                     </div>
-                                    <span class="time">12:00</span></div>
+                                    <span class="time">{{contact.messages[contact.messages.length - 1].date.slice(-8)}}</span></div>
                                 
                             </li>
                         </ul>
